@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Autolocks | Contact Us</title>
+  <meta name="description" content="Contact Autolocks — 24/7 mobile locksmiths serving Edmonton, Leduc, St. Albert, and Alberta.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
@@ -13,39 +16,67 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a class="active" href="contact.html">Contact</a></li>
       <li><a href="#" class="service-btn">Request Service</a></li>
     </ul>
   </nav>
 
   <header>
-    <img src="assets/images/contact-header.png" alt="Contact Locksmith">
+    <img src="assets/images/contact-header.png" alt="Contact Header">
     <div class="header-text">
       <h1>Contact Autolocks</h1>
-      <p>We’re available 24/7 across Edmonton & Alberta.</p>
+      <p>Lost keys? Locked out? We’ll get you moving again.</p>
     </div>
   </header>
 
   <main>
     <section class="contact-section">
-      <h2>Get In Touch</h2>
-      <p>Need urgent assistance? Fill out the form or email us directly — we’ll respond immediately.</p>
-      <form name="contact-form" method="POST" data-netlify="true" action="thank-you.html">
-        <input type="hidden" name="form-name" value="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-      <p>Email: <a href="mailto:autolocksca@gmail.com">autolocksca@gmail.com</a></p>
+      <!-- Info -->
+      <div class="panel">
+        <h2>Get In Touch</h2>
+        <p class="lead">We respond immediately — day or night.</p>
+        <p><strong>Email:</strong> <a href="mailto:autolocksca@gmail.com">autolocksca@gmail.com</a></p>
+        <p><strong>Service Areas:</strong> Edmonton, St. Albert, Leduc, Sherwood Park, Spruce Grove</p>
+        <p><strong>Hours:</strong> 24/7</p>
+      </div>
+
+      <!-- Form -->
+      <div class="panel">
+        <h2>Send a Message</h2>
+        <form name="contact-form" method="POST" data-netlify="true" action="thank-you.html">
+          <input type="hidden" name="form-name" value="contact-form">
+          <div class="form-grid">
+            <div><input type="text" name="name" placeholder="Your Name" required></div>
+            <div><input type="email" name="email" placeholder="Your Email" required></div>
+            <div class="full"><textarea name="message" placeholder="Your Message" required></textarea></div>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Autolocks | Edmonton • Leduc • St. Albert</p>
+    <p>&copy; 2025 Autolocks | Edmonton • Leduc • St. Albert • Alberta</p>
   </footer>
+
+  <!-- Popup Form (Global) -->
+  <div id="service-popup">
+    <div class="popup-content">
+      <h2>Request Service</h2>
+      <form name="service-request" method="POST" data-netlify="true" action="thank-you.html">
+        <input type="hidden" name="form-name" value="service-request">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
+        <div class="popup-actions">
+          <button type="submit" class="btn">Send Request</button>
+          <button type="button" class="close-btn">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-
