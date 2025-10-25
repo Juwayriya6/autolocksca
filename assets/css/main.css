@@ -1,343 +1,134 @@
-/* ==============================
-   RESET & BASE STYLES
-   ============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===== RESET & BASE ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f5f7fa;
+  color:#222;
+  line-height:1.65;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f5f7fa;
-  color: #222;
-  line-height: 1.65;
-}
-
-/* ==============================
-   COLOR SCHEME
-   ============================== */
-/* 
-  Primary: Metallic Navy (#004C8C)
-  Secondary: Silver Gray (#E6E9EE)
-  Accent Hover: #0063BA
+/* ===== COLORS =====
+Primary (Metallic Navy): #004C8C
+Secondary (Silver Gray): #E6E9EE
+Hover Accent: #0063BA
 */
 
-/* ==============================
-   NAVIGATION BAR
-   ============================== */
-nav {
-  background-color: #004C8C;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* ===== NAV ===== */
+.nav{
+  background:#004C8C;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.8rem 1.25rem;position:sticky;top:0;z-index:1000
+}
+.nav-left{display:flex;align-items:center;gap:1.2rem}
+.logo{color:#fff;font-size:1.4rem;font-weight:600;letter-spacing:.5px}
+.nav-links{list-style:none;display:flex;gap:1rem;flex-wrap:wrap}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color .25s}
+.nav-links a:hover,.nav-links a.active{color:#E6E9EE}
+.nav-right .nav-phone{
+  color:#fff;text-decoration:none;font-weight:700;white-space:nowrap
 }
 
-nav .logo {
-  color: #fff;
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+/* keep buttons clear of phone link on desktop */
+.hide-mobile{display:block}
+.show-mobile{display:none}
+
+/* ===== GLOBAL TAGLINE STRIP ===== */
+.tagline-strip{
+  background:#E6E9EE;color:#004C8C;text-align:center;
+  padding:.5rem .75rem;font-weight:600;font-size:.98rem
 }
 
-nav .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
+/* ===== HERO (no overlay) ===== */
+.hero{position:relative;width:100%;height:440px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#000}
+.hero img{width:100%;height:100%;object-fit:cover;display:block;filter:none}
+.header-text{
+  position:absolute;text-align:center;color:#fff;padding:1rem 1.25rem;max-width:900px;
+  text-shadow:0 2px 6px rgba(0,0,0,.45)
+}
+.header-text h1{font-size:2.2rem;font-weight:600;line-height:1.2}
+.header-text p{margin-top:.6rem;font-size:1.05rem}
+
+/* ===== MAIN LAYOUT ===== */
+main{max-width:1100px;margin:2.5rem auto;padding:0 1.1rem}
+section{margin-bottom:2.5rem}
+h2{color:#004C8C;font-size:1.8rem;margin-bottom:1rem;text-align:center}
+.lead{text-align:center;margin-bottom:1.4rem;color:#333}
+
+/* ===== SERVICES LIST ===== */
+.services ul{list-style:disc;margin-left:1.5rem;line-height:1.9}
+.cta-center{text-align:center;margin-top:1.25rem}
+
+/* ===== BUTTONS ===== */
+.btn,.service-btn{
+  background:#004C8C;color:#fff;border:none;border-radius:6px;
+  padding:.7rem 1.3rem;cursor:pointer;transition:background .25s;font-size:1rem
+}
+.btn:hover,.service-btn:hover{background:#0063BA}
+
+/* ===== CONTACT LAYOUT ===== */
+.contact-section{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;align-items:start
+}
+.panel{
+  background:#fff;border:1px solid #E6E9EE;border-radius:10px;padding:1.1rem;
+  box-shadow:0 6px 16px rgba(0,0,0,.04)
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-grid .full{grid-column:1/-1}
+input,textarea{
+  width:100%;padding:.6rem .75rem;border:1px solid #cbd4df;border-radius:8px;font-size:1rem
+}
+textarea{resize:vertical;min-height:130px}
+
+/* ===== POPUP ===== */
+#service-popup{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;
+  align-items:center;justify-content:center;z-index:2000
+}
+.popup-content{
+  width:92%;max-width:430px;background:#fff;border-radius:10px;padding:1.3rem;border:1px solid #E6E9EE
+}
+.popup-content h2{color:#004C8C;text-align:center;margin-bottom:.9rem}
+.popup-actions{display:flex;gap:.6rem;justify-content:center}
+.close-btn{background:#8f9aab;color:#fff;border:none;border-radius:6px;padding:.6rem 1rem;cursor:pointer}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#004C8C;color:#fff;text-align:center;padding:1.6rem 1rem;font-size:.95rem
+}
+footer a{color:#fff;text-decoration:none;font-weight:600}
+
+/* ===== THANK YOU ===== */
+.thank-header{
+  background:linear-gradient(180deg,#004C8C,#003866);color:#fff;text-align:center;padding:4rem 1rem
+}
+.thank-header .header-text{position:static;text-shadow:none;max-width:780px;margin:0 auto}
+.thank-header h1{font-size:2.1rem;margin-bottom:.5rem}
+
+/* ===== ACCESSIBILITY UTIL ===== */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
 }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px){
+  .hero{height:380px}
 }
-
-nav a:hover,
-nav a.active {
-  color: #E6E9EE;
+@media (max-width: 768px){
+  .nav{flex-wrap:wrap;gap:.5rem}
+  .nav-left{flex:1 1 100%;justify-content:space-between}
+  .nav-right{flex:1 1 100%;text-align:center}
+  .nav-links{justify-content:center}
+  .hide-mobile{display:none}
+  .show-mobile{display:inline-flex;margin-top:.75rem}
+  .hero{height:320px}
+  .header-text h1{font-size:1.7rem}
+  .header-text p{font-size:1rem}
+  .contact-section{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
 }
-
-/* ==============================
-   HEADER (NO OVERLAY, RESPONSIVE)
-   ============================== */
-header {
-  position: relative;
-  width: 100%;
-  height: 440px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #000;
-}
-
-header img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: none; /* full color images */
-}
-
-header::after {
-  content: none; /* removes overlay entirely */
-}
-
-.header-text {
-  position: absolute;
-  text-align: center;
-  color: #fff;
-  padding: 1rem 1.5rem;
-  max-width: 900px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
-}
-
-.header-text h1 {
-  font-size: 2.4rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.header-text p {
-  margin-top: 0.8rem;
-  font-size: 1.1rem;
-  opacity: 0.95;
-}
-
-.header-text .service-btn {
-  margin-top: 1.2rem;
-}
-
-/* ==============================
-   PAGE LAYOUT
-   ============================== */
-main {
-  max-width: 1100px;
-  margin: 3rem auto;
-  padding: 0 1.25rem;
-}
-
-section {
-  margin-bottom: 3rem;
-}
-
-h2 {
-  color: #004C8C;
-  font-size: 1.9rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.lead {
-  text-align: center;
-  margin-bottom: 1.75rem;
-  color: #333;
-}
-
-/* ==============================
-   BUTTONS
-   ============================== */
-.btn,
-.service-btn {
-  background-color: #004C8C;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.4rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.25s ease;
-  font-size: 1rem;
-}
-
-.btn:hover,
-.service-btn:hover {
-  background-color: #0063BA;
-}
-
-/* ==============================
-   SERVICES SECTION
-   ============================== */
-.services ul {
-  list-style: disc;
-  margin-left: 1.5rem;
-  line-height: 1.9;
-}
-
-/* ==============================
-   CONTACT FORM
-   ============================== */
-.contact-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-.contact-section .panel {
-  background: #fff;
-  border: 1px solid #E6E9EE;
-  border-radius: 10px;
-  padding: 1.25rem;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.form-grid .full {
-  grid-column: 1 / -1;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 0.65rem 0.8rem;
-  border: 1px solid #cbd4df;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 130px;
-}
-
-/* ==============================
-   POPUP FORM
-   ============================== */
-#service-popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-.popup-content {
-  width: 92%;
-  max-width: 430px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 1.5rem;
-  border: 1px solid #E6E9EE;
-  text-align: left;
-}
-
-.popup-content h2 {
-  color: #004C8C;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.popup-actions {
-  display: flex;
-  gap: 0.6rem;
-  justify-content: center;
-}
-
-.close-btn {
-  background: #8f9aab;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-}
-
-/* ==============================
-   FOOTER
-   ============================== */
-footer {
-  background-color: #004C8C;
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.95rem;
-  margin-top: 2rem;
-}
-
-/* ==============================
-   THANK-YOU PAGE
-   ============================== */
-.thank-header {
-  background: linear-gradient(180deg, #004C8C, #003866);
-  color: #fff;
-  text-align: center;
-  padding: 5rem 1rem;
-}
-
-.thank-header h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.6rem;
-}
-
-.thank-header p {
-  opacity: 0.95;
-}
-
-/* ==============================
-   RESPONSIVE DESIGN
-   ============================== */
-@media (max-width: 992px) {
-  header {
-    height: 360px;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  header {
-    height: 300px;
-  }
-
-  .header-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .header-text p {
-    font-size: 1rem;
-  }
-
-  .contact-section {
-    grid-template-columns: 1fr;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .header-text p {
-    font-size: 0.95rem;
-  }
+@media (max-width: 480px){
+  .header-text h1{font-size:1.45rem}
+  .header-text p{font-size:.95rem}
 }
