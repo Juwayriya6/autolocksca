@@ -2,87 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autolocks | Locksmith Services in Edmonton & Area</title>
-  <meta name="description" content="Emergency car unlocking, key replacement, fob programming, and ignition repair. Mobile locksmiths serving Edmonton, St. Albert, Leduc and Alberta." />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services | Autolocks</title>
+  <meta name="description" content="Emergency unlocks, key programming, ignition repair, and residential & commercial locksmith services in Edmonton, St. Albert, Leduc, Spruce Grove, Fort Saskatchewan, Sherwood Park & Stony Plain." />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-
   <nav class="nav">
-    <div class="nav-left">
-      <div class="logo">Autolocks</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="hide-mobile"><a href="#" class="service-btn">Request Service</a></li>
-      </ul>
-    </div>
+    <a class="logo" href="index.html">Autolocks</a>
     <div class="nav-right">
-      <a class="nav-phone" href="tel:5879263231">587-926-3231</a>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="services.html">Services</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="btn call" href="tel:5879263231">Call Us</a>
     </div>
   </nav>
 
-  <div class="tagline-strip">
-    <p>Lost your keys? Autolocks has your back 24/7.</p>
-  </div>
-
-  <header class="hero">
-    <img src="assets/images/services-header.png" alt="Locksmith services Edmonton" />
-    <div class="header-text">
-      <h1>Professional Locksmith Services</h1>
-      <p>Mobile experts serving Edmonton, St. Albert, Leduc & Alberta</p>
-      <button class="service-btn show-mobile">Request Service</button>
+  <header class="hero hero-short">
+    <img src="assets/images/service-bg.png" alt="Locksmith tools" />
+    <div class="hero-card">
+      <h1>Our Services</h1>
+      <p>Greater Edmonton • St. Albert • Leduc • Spruce Grove • Fort Saskatchewan • Sherwood Park • Stony Plain</p>
     </div>
   </header>
 
-  <main>
-    <section class="services">
-      <h2>We’ve Got You Covered</h2>
-      <p class="lead">Fast, reliable, and affordable — wherever you are.</p>
-      <ul>
-        <li><strong>24/7 Emergency Car Unlocking</strong> — rapid response, all makes & models.</li>
-        <li><strong>Key Replacement & Duplication</strong> — laser-cut, transponder, smart keys.</li>
-        <li><strong>Key Fob Programming</strong> — batteries, pairing, OEM & aftermarket.</li>
-        <li><strong>Broken Key Extraction</strong> — safe removal from door or ignition.</li>
-        <li><strong>Ignition Repair</strong> — fix sticking, worn, or damaged ignitions.</li>
-        <li><strong>Residential & Commercial</strong> — rekeys, lock changes, access solutions.</li>
-      </ul>
-      <div class="cta-center">
-        <a href="#" class="btn service-btn">Request Service</a>
-      </div>
+  <main class="container">
+    <section class="services-grid">
+      <article>
+        <h3>Emergency Car Unlocking</h3>
+        <p>Rapid, non-destructive vehicle entry — day or night.</p>
+      </article>
+      <article>
+        <h3>Key Duplication & Programming</h3>
+        <p>Transponder & fob programming, spares, and replacements.</p>
+      </article>
+      <article>
+        <h3>Ignition Repair & Extraction</h3>
+        <p>Fixes for stuck/broken keys and faulty cylinders.</p>
+      </article>
+      <article>
+        <h3>Residential & Commercial</h3>
+        <p>Rekeys, deadbolts, smart locks, and access control.</p>
+      </article>
     </section>
+
+    <div class="center">
+      <button class="btn" data-open-popup>Request Service</button>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Autolocks | Edmonton • Leduc • St. Albert • Alberta &nbsp;|&nbsp; <a href="tel:5879263231" class="footer-phone">587-926-3231</a></p>
+  <footer class="footer">
+    <p>&copy; 2025 Autolocks.ca — Call <a href="tel:5879263231">587-926-3231</a></p>
   </footer>
 
-  <!-- POPUP (global) -->
+  <!-- Shared popup -->
   <div id="service-popup" aria-hidden="true">
-    <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-      <h2 id="popup-title">Request Service</h2>
-      <form name="service-request" method="POST" data-netlify="true" action="thank-you.html">
+    <div class="popup-card" role="dialog" aria-modal="true" aria-label="Request Service Form">
+      <button class="close" aria-label="Close popup" data-close-popup>&times;</button>
+      <h2>Request Service</h2>
+      <form name="service-request" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" action="thank-you.html">
         <input type="hidden" name="form-name" value="service-request" />
-        <label><input type="text" name="name" placeholder="Your Name" required /></label>
-        <label><input type="email" name="email" placeholder="Your Email" required /></label>
-        <label class="full"><textarea name="message" rows="4" placeholder="Describe your issue" required></textarea></label>
-        <div class="popup-actions">
-          <button type="submit" class="btn">Send Request</button>
-          <button type="button" class="close-btn" aria-label="Close form">Close</button>
-        </div>
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="tel" name="phone" placeholder="Phone (recommended)" />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
+        <div class="g-recaptcha" data-sitekey="6Ld-example-public-key"></div>
+        <button type="submit" class="btn full">Send Request</button>
       </form>
     </div>
   </div>
-
-  <form name="service-request" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
 
   <script src="assets/js/main.js"></script>
 </body>
