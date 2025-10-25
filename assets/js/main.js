@@ -1,21 +1,21 @@
-// Popup: open & close
+// Popup open/close
 const popup = document.getElementById('service-popup');
-const openBtns = document.querySelectorAll('.service-btn');
-const closeBtn = document.querySelector('.close-btn');
+const openers = document.querySelectorAll('[data-open-popup]');
+const closeBtn = document.querySelector('[data-close-popup], #service-popup .close');
 
-openBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (popup) popup.style.display = 'flex';
-  });
+openers.forEach(btn => btn.addEventListener('click', () => {
+  popup.style.display = 'grid';
+  popup.setAttribute('aria-hidden', 'false');
+}));
+
+if (closeBtn) closeBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+  popup.setAttribute('aria-hidden', 'true');
 });
 
-if (closeBtn) {
-  closeBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
-}
-
 window.addEventListener('click', (e) => {
-  if (e.target === popup) popup.style.display = 'none';
+  if (e.target === popup) {
+    popup.style.display = 'none';
+    popup.setAttribute('aria-hidden', 'true');
+  }
 });

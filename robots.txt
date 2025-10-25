@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://autolocks.ca/sitemap.xml
+
+# SEO Notes:
+# - Allow all search engines to index your site.
+# - Points to your sitemap for faster discovery.
+# - Avoid disallowing unless you’re hiding internal test pages.
