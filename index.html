@@ -1,40 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autolocks | Edmonton & Alberta Locksmith Specialists</title>
-  <meta name="description" content="Lost keys? Locked out? Autolocks helps anytime — 24/7 Edmonton locksmith services including car unlocks, key replacement, ignition repair, and fob programming across Alberta, St. Albert, and Leduc.">
-  <meta name="keywords" content="locksmith Edmonton, car locksmith, key replacement, fob programming, ignition repair, St. Albert locksmith, Leduc locksmith, Alberta locksmith, emergency car unlock">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Autolocks | 24/7 Edmonton Locksmiths – Car Unlocking & Key Replacement</title>
+  <meta name="description" content="Lost keys? Locked out? Autolocks has your back 24/7. Fast mobile car unlocking, key replacement, fob programming and ignition repair in Edmonton, St. Albert, Leduc and Alberta." />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
-  <nav>
-    <div class="logo">Autolocks</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="#" class="service-btn">Request Service</a></li>
-    </ul>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-left">
+      <div class="logo">Autolocks</div>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="hide-mobile"><a href="#" class="service-btn">Request Service</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:5879263231">587-926-3231</a>
+    </div>
   </nav>
 
-  <header>
-    <img src="assets/images/home-header.png" alt="Car Locksmith Service">
+  <!-- GLOBAL TAGLINE STRIP (all pages) -->
+  <div class="tagline-strip">
+    <p>Lost your keys? Autolocks has your back 24/7.</p>
+  </div>
+
+  <!-- HEADER / HERO -->
+  <header class="hero">
+    <img src="assets/images/home-header.png" alt="Auto locksmith service in Edmonton" />
     <div class="header-text">
-      <h1>Lost Keys? Locked Out? <br>Autolocks Can Help Anytime.</h1>
-      <p>24/7 Car Key Unlocking & Locksmith Services in Edmonton, St. Albert, and Leduc.</p>
-      <button class="service-btn">Request Service</button>
+      <h1>Lost Keys? Locked Out?<br>Autolocks Can Help Anytime.</h1>
+      <p>24/7 Car Key Unlocking & Locksmith Services in Edmonton, St. Albert & Leduc</p>
+      <button class="service-btn show-mobile">Request Service</button>
     </div>
   </header>
 
   <main>
     <section class="about">
       <h2>Why Choose Autolocks?</h2>
-      <p>We’re Edmonton’s trusted auto locksmiths. Whether you’ve locked your keys inside, lost them, or need a new key programmed — we’ve got you covered. Available 24/7 with fast, affordable mobile service anywhere in Alberta.</p>
+      <p class="lead">Fast, professional, and affordable mobile locksmiths. Whether you’ve locked your keys inside, lost them, or need a new key programmed — we’ve got you covered 24/7.</p>
     </section>
 
     <section class="services">
@@ -46,31 +57,46 @@
         <li>Broken Key Extraction</li>
         <li>Ignition Repair</li>
       </ul>
+      <div class="cta-center">
+        <a href="#" class="btn service-btn">Request Service</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Autolocks | Edmonton • Leduc • St. Albert • Alberta</p>
+    <p>&copy; 2025 Autolocks | Edmonton • Leduc • St. Albert • Alberta &nbsp;|&nbsp; <a href="tel:5879263231" class="footer-phone">587-926-3231</a></p>
   </footer>
 
-  <!-- Popup Form -->
-  <div id="service-popup">
-    <div class="popup-content">
-      <h2>Request Service</h2>
+  <!-- POPUP FORM (global) -->
+  <div id="service-popup" aria-hidden="true">
+    <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+      <h2 id="popup-title">Request Service</h2>
       <form name="service-request" method="POST" data-netlify="true" action="thank-you.html">
-        <input type="hidden" name="form-name" value="service-request">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
-        <button type="submit" class="btn">Send Request</button>
-        <button type="button" class="close-btn">Close</button>
+        <input type="hidden" name="form-name" value="service-request" />
+        <label>
+          <span class="sr-only">Your Name</span>
+          <input type="text" name="name" placeholder="Your Name" required />
+        </label>
+        <label>
+          <span class="sr-only">Your Email</span>
+          <input type="email" name="email" placeholder="Your Email" required />
+        </label>
+        <label class="full">
+          <span class="sr-only">Describe your issue</span>
+          <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
+        </label>
+        <div class="popup-actions">
+          <button type="submit" class="btn">Send Request</button>
+          <button type="button" class="close-btn" aria-label="Close form">Close</button>
+        </div>
       </form>
     </div>
   </div>
 
+  <!-- Hidden Netlify form (backend recognition) -->
   <form name="service-request" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name">
-    <input type="email" name="email">
+    <input type="text" name="name" />
+    <input type="email" name="email" />
     <textarea name="message"></textarea>
   </form>
 
