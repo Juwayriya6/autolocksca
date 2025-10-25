@@ -1,98 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Autolocks | Contact Us</title>
-  <meta name="description" content="Contact Autolocks — 24/7 mobile locksmiths serving Edmonton, St. Albert, Leduc and Alberta. Call 587-926-3231." />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Autolocks</title>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="nav-left">
-      <div class="logo">Autolocks</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a class="active" href="contact.html">Contact</a></li>
-        <li class="hide-mobile"><a href="#" class="service-btn">Request Service</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <a class="nav-phone" href="tel:5879263231">587-926-3231</a>
-    </div>
+  <nav>
+    <div class="logo">Auto<span>locks</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button class="service-btn">Request Service</button></li>
+    </ul>
   </nav>
 
-  <div class="tagline-strip">
-    <p>Lost your keys? Autolocks has your back 24/7.</p>
-  </div>
-
   <header class="hero">
-    <img src="assets/images/contact-header.png" alt="Contact mobile locksmith Edmonton" />
-    <div class="header-text">
+    <img src="assets/images/contact-header.png" alt="Contact Autolocks Locksmith Edmonton">
+    <div class="hero-text">
       <h1>Contact Autolocks</h1>
-      <p>We respond immediately — day or night.</p>
-      <button class="service-btn show-mobile">Request Service</button>
+      <p>Available 24/7 in Edmonton, St. Albert & Leduc — call <a href="tel:5879263231">587-926-3231</a></p>
     </div>
   </header>
 
   <main>
-    <section class="contact-section">
-      <!-- Info -->
-      <div class="panel">
-        <h2>Get In Touch</h2>
-        <p class="lead">Call us anytime or send a message — we’ll get you moving again.</p>
-        <p><strong>Phone:</strong> <a href="tel:5879263231">587-926-3231</a></p>
-        <p><strong>Email:</strong> <a href="mailto:autolocksca@gmail.com">autolocksca@gmail.com</a></p>
-        <p><strong>Service Areas:</strong> Edmonton, St. Albert, Leduc, Sherwood Park, Spruce Grove</p>
-        <p><strong>Hours:</strong> 24/7</p>
-      </div>
-
-      <!-- Form -->
-      <div class="panel">
-        <h2>Send a Message</h2>
-        <form name="contact-form" method="POST" data-netlify="true" action="thank-you.html">
-          <input type="hidden" name="form-name" value="contact-form" />
-          <div class="form-grid">
-            <div><input type="text" name="name" placeholder="Your Name" required /></div>
-            <div><input type="email" name="email" placeholder="Your Email" required /></div>
-            <div class="full"><textarea name="message" placeholder="Your Message" required></textarea></div>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </div>
+    <section>
+      <h2>Send a Message</h2>
+      <form name="contact-form" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" action="thank-you.html">
+        <input type="hidden" name="form-name" value="contact-form">
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+        <div class="g-recaptcha" data-sitekey="6Ld-example-public-key"></div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Autolocks | Edmonton • Leduc • St. Albert • Alberta &nbsp;|&nbsp; <a href="tel:5879263231" class="footer-phone">587-926-3231</a></p>
+    <p>&copy; 2025 Autolocks.ca | All Rights Reserved</p>
   </footer>
-
-  <!-- POPUP (global) -->
-  <div id="service-popup" aria-hidden="true">
-    <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-      <h2 id="popup-title">Request Service</h2>
-      <form name="service-request" method="POST" data-netlify="true" action="thank-you.html">
-        <input type="hidden" name="form-name" value="service-request" />
-        <label><input type="text" name="name" placeholder="Your Name" required /></label>
-        <label><input type="email" name="email" placeholder="Your Email" required /></label>
-        <label class="full"><textarea name="message" rows="4" placeholder="Describe your issue" required></textarea></label>
-        <div class="popup-actions">
-          <button type="submit" class="btn">Send Request</button>
-          <button type="button" class="close-btn" aria-label="Close form">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <form name="service-request" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
 
   <script src="assets/js/main.js"></script>
 </body>
