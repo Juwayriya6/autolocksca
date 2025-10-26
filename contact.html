@@ -83,7 +83,7 @@
       <form id="service-form"
             name="service-request"
             method="POST"
-            action="thank-you.html"
+            action="service-thank-you.html"
             data-netlify="true"
             data-netlify-recaptcha="true"
             netlify-honeypot="bot-field">
@@ -110,8 +110,8 @@
   <script src="https://www.google.com/recaptcha/api.js?render=6LfOR_crAAAAAHWZqK_7R79iHHfhddBlBUas2y2T"></script>
 
   <script>
-    // Handle both forms (main contact + popup)
-    function handleFormSubmit(formId, tokenFieldId, successId, errorId) {
+    // Generic form handler
+    function handleFormSubmit(formId, tokenFieldId, successId, errorId, closePopup = false) {
       const form = document.getElementById(formId);
       if (!form) return;
       const successMsg = document.getElementById(successId);
@@ -119,6 +119,7 @@
 
       form.addEventListener("submit", function (event) {
         event.preventDefault();
+
         grecaptcha.ready(function () {
           grecaptcha.execute("6LfOR_crAAAAAHWZqK_7R79iHHfhddBlBUas2y2T", { action: "submit" })
             .then(function (token) {
@@ -131,7 +132,21 @@
                     form.reset();
                     successMsg.style.display = "block";
                     errorMsg.style.display = "none";
-                  } else throw new Error("Network response not ok");
+
+                    // Smoothly fade out popup after success
+                    if (closePopup) {
+                      const popup = document.getElementById("service-popup");
+                      setTimeout(() => {
+                        popup.style.transition = "opacity 0.6s ease";
+                        popup.style.opacity = "0";
+                        setTimeout(() => {
+                          popup.setAttribute("aria-hidden", "true");
+                          popup.style.opacity = "";
+                          successMsg.style.display = "none";
+                        }, 600);
+                      }, 2000);
+                    }
+                  } else throw new Error("Network error");
                 })
                 .catch(() => {
                   successMsg.style.display = "none";
@@ -142,9 +157,9 @@
       });
     }
 
-    // Initialize both
+    // Initialize both forms
     handleFormSubmit("contact-form", "g-recaptcha-token", "success-message", "error-message");
-    handleFormSubmit("service-form", "g-recaptcha-token-popup", "popup-success", "popup-error");
+    handleFormSubmit("service-form", "g-recaptcha-token-popup", "popup-success", "popup-error", true);
   </script>
 
   <script src="assets/js/main.js"></script>
