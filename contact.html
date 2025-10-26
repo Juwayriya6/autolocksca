@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="assets/css/main.css" />
 
   <!-- Google reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LfOR_crAAAAAHWZqK_7R79iHHfhddBlBUas2y2T"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LepkfcrAAAAACXFRfnHjYBOimeUb5G1P6NBzac0"></script>
   <script>
     grecaptcha.ready(function() {
-      grecaptcha.execute("6LfOR_crAAAAAHWZqK_7R79iHHfhddBlBUas2y2T", { action: "submit" })
+      grecaptcha.execute("6LepkfcrAAAAACXFRfnHjYBOimeUb5G1P6NBzac0", { action: "submit" })
         .then(function(token) {
           const tokenField = document.getElementById("g-recaptcha-token");
           if (tokenField) tokenField.value = token;
@@ -79,7 +79,7 @@
         </form>
       </div>
 
-      <!-- Contact Info Card -->
+      <!-- Contact Info -->
       <aside class="contact-card">
         <h3>Autolocks</h3>
         <p><strong>Phone:</strong> <a href="tel:5879263231">587-926-3231</a></p>
@@ -137,7 +137,7 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         grecaptcha.ready(function () {
-          grecaptcha.execute("6LfOR_crAAAAAHWZqK_7R79iHHfhddBlBUas2y2T", { action: "submit" })
+          grecaptcha.execute("6LepkfcrAAAAACXFRfnHjYBOimeUb5G1P6NBzac0", { action: "submit" })
             .then(function (token) {
               document.getElementById(tokenFieldId).value = token;
 
