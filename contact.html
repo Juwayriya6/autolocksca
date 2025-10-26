@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Autolocks</title>
   <meta name="description" content="Contact Autolocks — 24/7 locksmiths serving Edmonton, St. Albert, Leduc, Spruce Grove, Fort Saskatchewan, Sherwood Park & Stony Plain. Call 587-926-3231 or send a message." />
+
+  <!-- Main Styles -->
   <link rel="stylesheet" href="assets/css/main.css" />
 
-  <!-- reCAPTCHA v3 Script -->
+  <!-- Google reCAPTCHA v3 -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LfOR_crAAAAAHWZqK_7R79iHHfhddBlBUas2y2T"></script>
+  <script>
+    grecaptcha.ready(function() {
+      grecaptcha.execute("6LfOR_crAAAAAHWZqK_7R79iHHfhddBlBUas2y2T", { action: "submit" })
+        .then(function(token) {
+          const tokenField = document.getElementById("g-recaptcha-token");
+          if (tokenField) tokenField.value = token;
+        });
+    });
+  </script>
 </head>
 
 <body>
@@ -23,7 +34,7 @@
     </div>
   </nav>
 
-  <!-- Header -->
+  <!-- Hero Header -->
   <header class="hero hero-short">
     <img src="assets/images/contact-header.png" alt="Contact Autolocks" />
     <div class="hero-card">
@@ -45,7 +56,6 @@
               data-netlify="true"
               netlify-honeypot="bot-field"
               action="thank-you.html">
-
           <input type="hidden" name="form-name" value="contact-form" />
           <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -54,11 +64,12 @@
           <input type="email" name="email" placeholder="Email" required />
           <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
 
-          <!-- reCAPTCHA v3 token -->
+          <!-- Hidden reCAPTCHA token -->
           <input type="hidden" id="g-recaptcha-token" name="g-recaptcha-token" />
 
           <button type="submit" class="btn">Send Message</button>
 
+          <!-- Inline success/error -->
           <p id="success-message" style="display:none; color:green; margin-top:1rem;">
             ✅ Thank you! Your message has been sent successfully.
           </p>
@@ -68,7 +79,7 @@
         </form>
       </div>
 
-      <!-- Contact Info -->
+      <!-- Contact Info Card -->
       <aside class="contact-card">
         <h3>Autolocks</h3>
         <p><strong>Phone:</strong> <a href="tel:5879263231">587-926-3231</a></p>
@@ -96,7 +107,6 @@
             data-netlify="true"
             netlify-honeypot="bot-field"
             action="thank-you.html">
-
         <input type="hidden" name="form-name" value="service-request" />
         <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -105,7 +115,7 @@
         <input type="email" name="email" placeholder="Email" required />
         <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
 
-        <!-- reCAPTCHA v3 token -->
+        <!-- Hidden reCAPTCHA token -->
         <input type="hidden" id="g-recaptcha-token-popup" name="g-recaptcha-token" />
 
         <button type="submit" class="btn full">Send Request</button>
@@ -116,7 +126,7 @@
     </div>
   </div>
 
-  <!-- Script to handle both forms -->
+  <!-- JS to handle both forms -->
   <script>
     function handleFormSubmit(formId, tokenFieldId, successId, errorId) {
       const form = document.getElementById(formId);
@@ -154,6 +164,7 @@
     handleFormSubmit("service-form", "g-recaptcha-token-popup", "popup-success", "popup-error");
   </script>
 
+  <!-- Main JS -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
