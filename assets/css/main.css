@@ -1,23 +1,21 @@
 /* ───────────────────────────────
    AutoLocks.ca — Main Stylesheet
-   Updated for modern layout + SEO
+   Cohesive layout + responsive header
 ──────────────────────────────────*/
 
-/* ---- Global Reset ---- */
+/* ---- Reset ---- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
-  color: #1c1c1c;
   background: #fff;
+  color: #1c1c1c;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -27,7 +25,7 @@ body {
   --navy: #003b60;
   --gold: #d6a436;
   --light: #f5f7fa;
-  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow: rgba(0,0,0,0.08);
 }
 
 /* ---- Header ---- */
@@ -37,17 +35,40 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2rem;
   box-shadow: 0 2px 4px var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1000;
+}
+
+/* Brand section */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-text h1 {
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.brand-text p {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .logo-link img {
   height: 55px;
 }
 
+/* Navigation */
 .site-nav {
   display: flex;
   gap: 1.5rem;
@@ -76,15 +97,13 @@ body {
   text-align: center;
   padding: 5rem 1rem;
   position: relative;
-  background-size: cover;
-  background-position: center;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 59, 96, 0.55); /* navy overlay */
+  background: rgba(0, 59, 96, 0.55);
   z-index: 0;
 }
 
@@ -92,6 +111,7 @@ body {
 .hero p {
   position: relative;
   z-index: 1;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
 }
 
 .hero h1 {
@@ -112,8 +132,8 @@ body {
   border-radius: 8px;
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.3s ease;
   text-decoration: none;
+  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -124,7 +144,7 @@ body {
 
 .btn.primary:hover {
   background: var(--gold);
-  color: #003b60;
+  color: var(--navy);
 }
 
 .btn.outline {
@@ -145,11 +165,8 @@ body {
   padding: 0 1.2rem;
 }
 
-.center {
-  text-align: center;
-}
+.center { text-align: center; }
 
-/* ---- Lead Paragraph ---- */
 .lead {
   font-size: 1.2rem;
   color: #333;
@@ -166,7 +183,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* ---- Call Now Floating Button ---- */
+/* ---- Floating Call Button ---- */
 .call-now {
   position: fixed;
   bottom: 20px;
@@ -177,84 +194,40 @@ body {
   padding: 0.9rem 1.1rem;
   border-radius: 50%;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   transition: 0.3s;
-  z-index: 1000;
+  z-index: 2000;
 }
-
 .call-now:hover {
   background: var(--navy);
   color: #fff;
 }
 
-/* ---- Contact Form ---- */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 0.8rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  width: 100%;
-  font-family: inherit;
-}
-
-.contact-form button {
-  border: none;
-}
-
-/* ---- Locations Grid ---- */
-.locations-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
-  padding: 0;
-}
-
-.locations-grid li {
-  background: var(--light);
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 2px 6px var(--shadow);
-  transition: 0.3s;
-}
-
-.locations-grid li:hover {
-  background: var(--gold);
-  color: #fff;
-}
-
-.locations-grid a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-}
-
-/* ---- Responsive ---- */
+/* ---- Responsive Layout ---- */
 @media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .brand-text h1 { font-size: 1.3rem; }
+  .brand-text p { font-size: 0.9rem; }
+
   .site-nav {
-    display: none; /* hide for now, can be converted to burger later */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .btn {
-    padding: 0.7rem 1.4rem;
-  }
-
-  .container {
-    margin: 2rem auto;
-  }
+  .hero h1 { font-size: 2rem; }
+  .btn { padding: 0.7rem 1.4rem; }
 }
