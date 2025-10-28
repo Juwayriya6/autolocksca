@@ -1,170 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Autolocks</title>
-  <meta name="description" content="Contact Autolocks — 24/7 locksmiths serving Edmonton, St. Albert, Leduc, Spruce Grove, Fort Saskatchewan, Sherwood Park & Stony Plain. Call 587-926-3231 or send a message." />
+  <meta charset="utf-8">
+  <title>Contact — AutoLocks.ca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact AutoLocks.ca for mobile car key replacement, programming, lockouts, and ignition repair in Edmonton and area.">
+  <link rel="icon" href="assets/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/site.webmanifest">
+  <meta name="theme-color" content="#003b60">
+  <link rel="stylesheet" href="assets/css/main.css">
 
-  <!-- Main Styles -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-
-  <!-- Google reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=6LepkfcrAAAAACXFRfnHjYBOimeUb5G1P6NBzac0"></script>
+  <!-- reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LcZOfkrAAAAAFVlEed_qHjwh6k6mukoX_cwXaWw"></script>
   <script>
-    grecaptcha.ready(function() {
-      grecaptcha.execute("6LepkfcrAAAAACXFRfnHjYBOimeUb5G1P6NBzac0", { action: "submit" })
-        .then(function(token) {
-          const tokenField = document.getElementById("g-recaptcha-token");
-          if (tokenField) tokenField.value = token;
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.grecaptcha) {
+        grecaptcha.ready(function () {
+          grecaptcha.execute("6LcZOfkrAAAAAFVlEed_qHjwh6k6mukoX_cwXaWw", { action: "submit" }).then(function (token) {
+            var el = document.getElementById("g-recaptcha-token");
+            if (el) el.value = token;
+          });
         });
+      }
     });
   </script>
 </head>
-
 <body>
-  <!-- Navigation -->
-  <nav class="nav">
-    <a class="logo" href="index.html">Autolocks</a>
-    <div class="nav-right">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="services.html">Services</a>
-      <a class="nav-link active" href="contact.html">Contact</a>
-      <a class="btn call" href="tel:5879263231">Call Us</a>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <header class="hero hero-short">
-    <img src="assets/images/contact-header.png" alt="Contact Autolocks" />
-    <div class="hero-card">
-      <h1>Contact Us</h1>
-      <p>We’re here 24/7 • <a href="tel:5879263231">587-926-3231</a></p>
-      <p class="regions">Edmonton • St. Albert • Leduc • Spruce Grove • Fort Saskatchewan • Sherwood Park • Stony Plain</p>
-    </div>
+  <header class="site-header">
+    <a href="index.html" class="logo-link" aria-label="AutoLocks.ca Home">
+      <img src="assets/images/favicon.svg" alt="AutoLocks.ca logo" height="60">
+    </a>
+    <nav class="site-nav">
+      <a href="services.html">Services</a>
+      <a href="locations.html">Locations</a>
+      <a href="contact.html" aria-current="page" class="btn">Contact</a>
+    </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="container">
-    <section class="contact-grid">
-      <!-- Contact Form -->
-      <div>
-        <h2>Send a Message</h2>
-        <form id="contact-form"
-              name="contact-form"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              action="thank-you.html">
-          <input type="hidden" name="form-name" value="contact-form" />
-          <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+    <h1>Request Service</h1>
+    <p class="lead">Tell us your vehicle, location, and issue — we’ll text or call right back.</p>
 
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="tel" name="phone" placeholder="Phone (recommended)" />
-          <input type="email" name="email" placeholder="Email" required />
-          <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+    <!-- Netlify Forms compatible -->
+    <form name="service-request" method="POST" data-netlify="true" action="/thank-you.html" class="contact-form">
+      <input type="hidden" name="form-name" value="service-request">
+      <input type="hidden" id="g-recaptcha-token" name="g-recaptcha-token">
 
-          <!-- Hidden reCAPTCHA token -->
-          <input type="hidden" id="g-recaptcha-token" name="g-recaptcha-token" />
+      <label>Full Name
+        <input type="text" name="name" required>
+      </label>
 
-          <button type="submit" class="btn">Send Message</button>
+      <label>Phone Number
+        <input type="tel" name="phone" required>
+      </label>
 
-          <!-- Inline success/error -->
-          <p id="success-message" style="display:none; color:green; margin-top:1rem;">
-            ✅ Thank you! Your message has been sent successfully.
-          </p>
-          <p id="error-message" style="display:none; color:red; margin-top:1rem;">
-            ⚠️ Oops! Something went wrong. Please try again later.
-          </p>
-        </form>
-      </div>
+      <label>Location (City/Area)
+        <input type="text" name="location" required>
+      </label>
 
-      <!-- Contact Info -->
-      <aside class="contact-card">
-        <h3>Autolocks</h3>
-        <p><strong>Phone:</strong> <a href="tel:5879263231">587-926-3231</a></p>
-        <p><strong>Email:</strong> <a href="mailto:autolocksca@gmail.com">autolocksca@gmail.com</a></p>
-        <p>Serving Edmonton, St. Albert, Leduc, Spruce Grove, Fort Saskatchewan, Sherwood Park & Stony Plain — 24/7.</p>
-        <button class="btn outline" data-open-popup>Request Service</button>
-      </aside>
-    </section>
+      <label>Vehicle (Year/Make/Model)
+        <input type="text" name="vehicle" required>
+      </label>
+
+      <label>Service Needed
+        <select name="service" required>
+          <option value="Key Replacement">Key Replacement</option>
+          <option value="Programming">Programming</option>
+          <option value="Lockout">Lockout</option>
+          <option value="Ignition Repair">Ignition Repair</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+      <label>Notes
+        <textarea name="message" rows="4" placeholder="Any details that help us arrive prepared."></textarea>
+      </label>
+
+      <button type="submit" class="btn primary">Submit Request</button>
+      <a href="tel:+15879263231" class="btn outline">Call Now</a>
+    </form>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Autolocks.ca — All Rights Reserved</p>
+  <footer class="site-footer">
+    <p>© 2025 AutoLocks Locksmith — Edmonton, AB</p>
   </footer>
 
-  <!-- Service Request Popup -->
-  <div id="service-popup" aria-hidden="true">
-    <div class="popup-card" role="dialog" aria-modal="true" aria-label="Request Service Form">
-      <button class="close" aria-label="Close popup" data-close-popup>&times;</button>
-      <h2>Request Service</h2>
-
-      <form id="service-form"
-            name="service-request"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            action="thank-you.html">
-        <input type="hidden" name="form-name" value="service-request" />
-        <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="tel" name="phone" placeholder="Phone (recommended)" />
-        <input type="email" name="email" placeholder="Email" required />
-        <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
-
-        <!-- Hidden reCAPTCHA token -->
-        <input type="hidden" id="g-recaptcha-token-popup" name="g-recaptcha-token" />
-
-        <button type="submit" class="btn full">Send Request</button>
-
-        <p id="popup-success" style="display:none; color:green; margin-top:1rem;">✅ Request sent successfully!</p>
-        <p id="popup-error" style="display:none; color:red; margin-top:1rem;">⚠️ Could not send request. Try again.</p>
-      </form>
-    </div>
-  </div>
-
-  <!-- JS to handle both forms -->
-  <script>
-    function handleFormSubmit(formId, tokenFieldId, successId, errorId) {
-      const form = document.getElementById(formId);
-      if (!form) return;
-      const successMsg = document.getElementById(successId);
-      const errorMsg = document.getElementById(errorId);
-
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        grecaptcha.ready(function () {
-          grecaptcha.execute("6LepkfcrAAAAACXFRfnHjYBOimeUb5G1P6NBzac0", { action: "submit" })
-            .then(function (token) {
-              document.getElementById(tokenFieldId).value = token;
-
-              const formData = new FormData(form);
-              fetch("/", { method: "POST", body: formData })
-                .then((response) => {
-                  if (response.ok) {
-                    form.reset();
-                    successMsg.style.display = "block";
-                    errorMsg.style.display = "none";
-                  } else throw new Error("Network response not ok");
-                })
-                .catch(() => {
-                  successMsg.style.display = "none";
-                  errorMsg.style.display = "block";
-                });
-            });
-        });
-      });
-    }
-
-    // Initialize both forms
-    handleFormSubmit("contact-form", "g-recaptcha-token", "success-message", "error-message");
-    handleFormSubmit("service-form", "g-recaptcha-token-popup", "popup-success", "popup-error");
-  </script>
-
-  <!-- Main JS -->
+  <a href="tel:+15879263231" class="call-now" aria-label="Call AutoLocks.ca">📞 Call Now</a>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
