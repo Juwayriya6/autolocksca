@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Contact AutoLocks.ca | Edmonton Mobile Locksmith</title>
-  <meta name="description" content="Contact AutoLocks.ca for fast, insured mobile locksmith service in Edmonton. Car key replacement, fob programming, ignition repair, and lockouts.">
+  <meta name="description" content="Contact AutoLocks.ca for fast, insured mobile locksmith service in Edmonton and nearby areas. Car key replacement, fob programming, ignition repair, and lockouts.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://www.autolocks.ca/contact.html">
   <link rel="icon" href="assets/images/favicon.ico" sizes="any">
@@ -11,10 +11,14 @@
   <meta name="theme-color" content="#003b60">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
+  <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="brand">
-      <a href="index.html" class="logo-link"><img src="assets/images/favicon.svg" alt="AutoLocks.ca logo" height="60"></a>
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/favicon.svg" alt="AutoLocks.ca logo" height="60">
+      </a>
       <div class="brand-text">
         <h1>AutoLocks</h1>
         <p>Edmonton’s Car Key Specialists</p>
@@ -27,26 +31,47 @@
     </nav>
   </header>
 
+  <!-- ===== Hero Section ===== -->
   <section class="hero" style="background:url('assets/images/hero-contact.webp') center/cover no-repeat;">
     <h1>Contact AutoLocks.ca</h1>
-    <p>24/7 Mobile Locksmith Service — Edmonton & Area</p>
+    <p>24/7 Mobile Locksmith Service — Edmonton & Surrounding Area</p>
   </section>
 
+  <!-- ===== Contact Form Section ===== -->
   <main class="container">
-    <p class="lead center">Call us now or send a message below — we’ll respond quickly.</p>
-    <form id="contact-form" action="/thank-you.html" method="POST" class="contact-form">
+    <p class="lead center">Call us anytime or send a message below — we’ll respond as quickly as possible.</p>
+
+    <!-- Netlify-enabled form -->
+    <form name="contact" method="POST" data-netlify="true" action="/thank-you.html" class="contact-form">
+      <!-- Hidden field required by Netlify -->
+      <input type="hidden" name="form-name" value="contact">
+
       <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
       <input type="tel" name="phone" placeholder="Phone Number" required>
       <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
+
+      <!-- Optional reCAPTCHA v3 -->
       <input type="hidden" id="g-recaptcha-token" name="g-recaptcha-token">
+
       <button type="submit" class="btn primary">Send Message</button>
     </form>
+
+    <div class="cta center" style="margin-top:2rem;">
+      <p>Prefer to call directly?</p>
+      <a href="tel:+15879263231" class="btn outline">📞 Call (587) 926-3231</a>
+    </div>
   </main>
 
-  <footer class="site-footer"><p>© 2025 AutoLocks Locksmith — Edmonton, AB</p></footer>
-  <a href="tel:+15879263231" class="call-now">📞</a>
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p>© 2025 AutoLocks Locksmith — Edmonton, Alberta</p>
+  </footer>
 
-  <!-- reCAPTCHA v3 -->
+  <!-- Floating Call Button -->
+  <a href="tel:+15879263231" class="call-now" aria-label="Call AutoLocks.ca">📞</a>
+
+  <!-- reCAPTCHA v3 script -->
   <script src="https://www.google.com/recaptcha/api.js?render=6LcZOfkrAAAAAFVlEed_qHjwh6k6mukoX_cwXaWw"></script>
   <script>
     grecaptcha.ready(function() {
@@ -55,6 +80,7 @@
       });
     });
   </script>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
