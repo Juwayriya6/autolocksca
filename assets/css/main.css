@@ -329,4 +329,45 @@ input:focus, textarea:focus {
   .contact-info {
     margin-top: 1.5rem;
   }
+}/* ==== Locations Page Styling ==== */
+.locations-intro {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem 0 3rem;
+  text-align: center;
+}
+
+.locations-grid a {
+  display: block;
+  background: #f7f9fb;
+  color: var(--navy);
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #e0e5e9;
+  transition: all 0.25s ease;
+}
+
+.locations-grid a:hover {
+  background: var(--navy);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
 }
