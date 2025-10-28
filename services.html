@@ -1,78 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services | Autolocks</title>
-  <meta name="description" content="Emergency unlocks, key programming, ignition repair, and residential & commercial locksmith services in Edmonton, St. Albert, Leduc, Spruce Grove, Fort Saskatchewan, Sherwood Park & Stony Plain." />
-  <link rel="stylesheet" href="assets/css/main.css" />
+  <meta charset="utf-8">
+  <title>Automotive Locksmith Services — AutoLocks.ca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Car key replacement, programming, fobs, remotes, ignition repair, and emergency lockouts in Edmonton and surrounding areas.">
+  <link rel="icon" href="assets/images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="manifest" href="assets/images/site.webmanifest">
+  <meta name="theme-color" content="#003b60">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <nav class="nav">
-    <a class="logo" href="index.html">Autolocks</a>
-    <div class="nav-right">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link active" href="services.html">Services</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-      <a class="btn call" href="tel:5879263231">Call Us</a>
-    </div>
-  </nav>
-
-  <header class="hero hero-short">
-    <img src="assets/images/service-bg.png" alt="Locksmith tools" />
-    <div class="hero-card">
-      <h1>Our Services</h1>
-      <p>Greater Edmonton • St. Albert • Leduc • Spruce Grove • Fort Saskatchewan • Sherwood Park • Stony Plain</p>
-    </div>
+  <header class="site-header">
+    <a href="index.html" class="logo-link" aria-label="AutoLocks.ca Home">
+      <img src="assets/images/favicon.svg" alt="AutoLocks.ca logo" height="60">
+    </a>
+    <nav class="site-nav">
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="locations.html">Locations</a>
+      <a href="contact.html" class="btn">Contact</a>
+    </nav>
   </header>
 
   <main class="container">
-    <section class="services-grid">
-      <article>
-        <h3>Emergency Car Unlocking</h3>
-        <p>Rapid, non-destructive vehicle entry — day or night.</p>
-      </article>
-      <article>
-        <h3>Key Duplication & Programming</h3>
-        <p>Transponder & fob programming, spares, and replacements.</p>
-      </article>
-      <article>
-        <h3>Ignition Repair & Extraction</h3>
-        <p>Fixes for stuck/broken keys and faulty cylinders.</p>
-      </article>
-      <article>
-        <h3>Residential & Commercial</h3>
-        <p>Rekeys, deadbolts, smart locks, and access control.</p>
-      </article>
-    </section>
+    <h1>Automotive Locksmith Services</h1>
+    <p class="lead">Mobile car key solutions for Edmonton and nearby cities — we come to you.</p>
 
-    <div class="center">
-      <button class="btn" data-open-popup>Request Service</button>
+    <div class="grid-3">
+      <article>
+        <h3>Key Replacement</h3>
+        <ul>
+          <li>Lost all keys</li>
+          <li>Spare key cutting</li>
+          <li>High-security & laser keys</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Programming</h3>
+        <ul>
+          <li>Transponder / chip keys</li>
+          <li>Smart keys / push-to-start</li>
+          <li>Fobs & remotes</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Emergency Lockout</h3>
+        <ul>
+          <li>Rapid response</li>
+          <li>Damage-free entry</li>
+          <li>All makes & models</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Ignition Repair</h3>
+        <ul>
+          <li>Extraction & rebuilds</li>
+          <li>Stuck or worn cylinders</li>
+          <li>On-site diagnosis</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Module & ECU</h3>
+        <ul>
+          <li>VIN-matched programming</li>
+          <li>Key learning / immobilizer</li>
+          <li>Battery-safe procedures</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Fleet & Dealers</h3>
+        <ul>
+          <li>Volume rates</li>
+          <li>Priority scheduling</li>
+          <li>Invoice & records</li>
+        </ul>
+      </article>
     </div>
+
+    <p class="center">
+      <a href="contact.html" class="btn primary">Request Service</a>
+      <a href="tel:+15879263231" class="btn outline">Call Now</a>
+    </p>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 Autolocks.ca — Call <a href="tel:5879263231">587-926-3231</a></p>
+  <footer class="site-footer">
+    <p>© 2025 AutoLocks Locksmith — Edmonton, AB</p>
   </footer>
 
-  <!-- Shared popup -->
-  <div id="service-popup" aria-hidden="true">
-    <div class="popup-card" role="dialog" aria-modal="true" aria-label="Request Service Form">
-      <button class="close" aria-label="Close popup" data-close-popup>&times;</button>
-      <h2>Request Service</h2>
-      <form name="service-request" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" action="thank-you.html">
-        <input type="hidden" name="form-name" value="service-request" />
-        <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="tel" name="phone" placeholder="Phone (recommended)" />
-        <input type="email" name="email" placeholder="Email" required />
-        <textarea name="message" rows="4" placeholder="Describe your issue" required></textarea>
-        <div class="g-recaptcha" data-sitekey="6Ld-example-public-key"></div>
-        <button type="submit" class="btn full">Send Request</button>
-      </form>
-    </div>
-  </div>
-
+  <a href="tel:+15879263231" class="call-now" aria-label="Call AutoLocks.ca">📞 Call Now</a>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
